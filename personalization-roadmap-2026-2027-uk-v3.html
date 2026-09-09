@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Роадмап персоналізації 2026–2027</title>
+<style>
+  :root{
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --text:#152033;
+    --muted:#65758b;
+    --line:#dfe6ee;
+    --green:#20a464;
+    --green-soft:#eaf8f1;
+    --blue:#4b8df8;
+    --blue-soft:#edf4ff;
+    --yellow:#f5b72e;
+    --yellow-soft:#fff6df;
+    --orange:#f28a4b;
+    --orange-soft:#fff0e8;
+    --purple:#8b6de9;
+    --purple-soft:#f2efff;
+    --red:#df5555;
+    --red-soft:#fff0f0;
+    --shadow:0 8px 24px rgba(31,53,77,.08);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .page{
+    width:min(1520px, calc(100% - 40px));
+    margin:24px auto 64px;
+  }
+  .hero{
+    background:linear-gradient(135deg,#ffffff 0%,#f9fbff 60%,#eef9f3 100%);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:28px 30px;
+    box-shadow:var(--shadow);
+  }
+  .hero-top{
+    display:flex;
+    gap:24px;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .eyebrow{
+    color:var(--green);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  h1{
+    margin:0;
+    font-size:clamp(34px,5vw,64px);
+    line-height:.95;
+    letter-spacing:-.04em;
+  }
+  .subtitle{
+    margin-top:14px;
+    color:var(--muted);
+    font-size:18px;
+    max-width:950px;
+    line-height:1.55;
+  }
+  .brand{
+    font-size:30px;
+    font-weight:900;
+    color:var(--green);
+    letter-spacing:-.04em;
+  }
+  .brand small{
+    display:block;
+    margin-top:4px;
+    color:var(--muted);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-align:right;
+    text-transform:uppercase;
+  }
+  .summary-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:24px;
+  }
+  .summary{
+    background:rgba(255,255,255,.78);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 18px;
+  }
+  .summary .k{
+    color:var(--muted);
+    font-size:12px;
+    text-transform:uppercase;
+    font-weight:800;
+    letter-spacing:.06em;
+  }
+  .summary .v{
+    margin-top:5px;
+    font-weight:800;
+    font-size:17px;
+  }
+
+  .section{
+    margin-top:28px;
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    gap:24px;
+    align-items:flex-end;
+    margin-bottom:14px;
+  }
+  h2{
+    margin:0;
+    font-size:30px;
+    letter-spacing:-.025em;
+  }
+  .section-note{
+    color:var(--muted);
+    max-width:720px;
+    line-height:1.5;
+    font-size:14px;
+  }
+
+  .timeline{
+    display:grid;
+    grid-template-columns:repeat(5, minmax(0,1fr));
+    gap:12px;
+  }
+  .phase{
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--card);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    min-height:470px;
+    display:flex;
+    flex-direction:column;
+  }
+  .phase .top{
+    padding:18px 18px 16px;
+    border-bottom:1px solid var(--line);
+  }
+  .phase.blue .top{background:var(--blue-soft)}
+  .phase.green .top{background:var(--green-soft)}
+  .phase.yellow .top{background:var(--yellow-soft)}
+  .phase.orange .top{background:var(--orange-soft)}
+  .phase.purple .top{background:var(--purple-soft)}
+  .q{
+    font-size:13px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+  .phase-title{
+    margin-top:5px;
+    font-size:20px;
+    font-weight:900;
+    line-height:1.15;
+  }
+  .phase-body{
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    height:100%;
+  }
+  .phase ul{
+    margin:0;
+    padding-left:18px;
+    color:#344257;
+    line-height:1.48;
+    font-size:14px;
+  }
+  .phase li{margin:7px 0}
+  .outcome{
+    margin-top:auto;
+    border-radius:14px;
+    padding:12px 13px;
+    font-size:13px;
+    font-weight:750;
+    line-height:1.4;
+  }
+  .blue .outcome{background:var(--blue-soft)}
+  .green .outcome{background:var(--green-soft)}
+  .yellow .outcome{background:var(--yellow-soft)}
+  .orange .outcome{background:var(--orange-soft)}
+  .purple .outcome{background:var(--purple-soft)}
+
+  .gates{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:12px;
+  }
+  .gate{
+    background:var(--red-soft);
+    border:1px solid #f3caca;
+    border-radius:16px;
+    padding:14px 15px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .gate-icon{
+    width:30px;height:30px;border-radius:10px;
+    display:grid;place-items:center;
+    background:var(--red);color:white;font-weight:900;flex:0 0 auto;
+  }
+  .gate strong{
+    display:block;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:#a93030
+  }
+  .gate span{
+    display:block;margin-top:4px;font-size:14px;line-height:1.4
+  }
+  .gate.scale{
+    background:var(--green-soft);
+    border-color:#bfe7d2;
+  }
+  .gate.scale .gate-icon{background:var(--green)}
+  .gate.scale strong{color:#187846}
+
+  .matrix{
+    display:grid;
+    grid-template-columns:220px repeat(5,1fr);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    background:white;
+    box-shadow:var(--shadow);
+  }
+  .matrix > div{
+    padding:14px 16px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    font-size:13px;
+    line-height:1.4;
+  }
+  .matrix > div:nth-child(6n){border-right:none}
+  .matrix .label{
+    font-weight:900;
+    background:#f9fbfd;
+  }
+  .matrix .header{
+    font-weight:900;
+    text-align:center;
+  }
+  .matrix .last-row{border-bottom:none}
+
+  .platform{
+    margin-top:28px;
+    border-radius:24px;
+    padding:24px;
+    background:#152033;
+    color:white;
+    box-shadow:var(--shadow);
+  }
+  .platform h3{
+    margin:0 0 8px;
+    font-size:27px;
+  }
+  .platform p{
+    margin:0;
+    color:#c8d3e2;
+    max-width:1050px;
+    line-height:1.55;
+  }
+  .platform-flow{
+    display:grid;
+    grid-template-columns:1.1fr .12fr 1.1fr .12fr 1.1fr .12fr 1.3fr;
+    align-items:stretch;
+    gap:10px;
+    margin-top:20px;
+  }
+  .node{
+    background:#202d43;
+    border:1px solid #31415c;
+    border-radius:16px;
+    padding:16px;
+    min-height:125px;
+  }
+  .node b{display:block;font-size:15px}
+  .node span{display:block;margin-top:8px;color:#c8d3e2;font-size:13px;line-height:1.45}
+  .arrow{
+    display:grid;place-items:center;
+    font-size:24px;color:#7391b8
+  }
+
+  .pp-placeholder{
+    margin-top:28px;
+    background:linear-gradient(135deg,#fff,#fbfbff);
+    border:1.5px dashed #bfc9d8;
+    border-radius:22px;
+    padding:24px;
+  }
+  .pp-placeholder .tag{
+    display:inline-block;
+    border-radius:999px;
+    padding:7px 10px;
+    background:var(--purple-soft);
+    color:#5b45ad;
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .pp-placeholder h3{
+    margin:12px 0 8px;
+    font-size:26px;
+  }
+  .pp-placeholder p{
+    margin:0;color:var(--muted);max-width:950px;line-height:1.55
+  }
+  .pp-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:18px;
+  }
+  .pp-card{
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px;
+    background:white;
+  }
+  .pp-card b{display:block}
+  .pp-card span{
+    display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.4
+  }
+
+  .footer{
+    color:#7b8798;
+    font-size:12px;
+    margin-top:18px;
+    text-align:right;
+  }
+  @media (max-width:1100px){
+    .timeline{grid-template-columns:1fr}
+    .phase{min-height:auto}
+    .gates{grid-template-columns:1fr 1fr}
+    .summary-grid{grid-template-columns:1fr 1fr}
+    .matrix{grid-template-columns:180px repeat(5,220px); overflow-x:auto}
+    .platform-flow{grid-template-columns:1fr}
+    .arrow{transform:rotate(90deg)}
+    .pp-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:650px){
+    .page{width:min(100% - 20px,1520px);margin-top:10px}
+    .hero{padding:20px}
+    .hero-top{display:block}
+    .brand{margin-top:18px}
+    .summary-grid,.gates,.pp-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="hero">
+    <div class="hero-top">
+      <div>
+        <div class="eyebrow">Стратегія персоналізації</div>
+        <h1>Роадмап персоналізації<br/>2026–2027</h1>
+        <div class="subtitle">
+          Від контрольованого власного MVP рекомендацій до масштабованої Платформи персоналізації.
+          Роадмап побудований через інвестиційні гейти: кожен новий ML-рівень має довести додаткову бізнес-цінність перед масштабуванням.
+        </div>
+      </div>
+      <div class="brand">COMFY<small>Дані · Продукти · Зростання</small></div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary"><div class="k">Головна метрика</div><div class="v">LTV клієнта</div></div>
+      <div class="summary"><div class="k">Ключовий принцип</div><div class="v">Єдина ML-основа для повторного використання</div></div>
+      <div class="summary"><div class="k">Валідація</div><div class="v">A/B → Інкремент → Вартість</div></div>
+      <div class="summary"><div class="k">Об’єднання</div><div class="v">Рекомендації + Пошук</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Трек 01</div>
+        <h2>Роадмап рекомендацій</h2>
+      </div>
+      <div class="section-note">
+        Ціль — не «складніша модель». Ціль — масштабована recommendation capability, яка системно покращує конверсію, прибуток і релевантність для клієнта та повторно використовує ту саму інфраструктуру для Пошуку.
+      </div>
+    </div>
+
+    <div class="timeline">
+      <article class="phase blue">
+        <div class="top">
+          <div class="q">Q4 2026</div>
+          <div class="phase-title">Основа + колаборативна фільтрація</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Побудувати єдиний основу даних: перегляди, кошики, покупки, ознаки клієнта й товару.</li>
+            <li>Запустити власний базову модель колаборативної фільтрації.</li>
+            <li>Підключити 1–2 ключові місця показу рекомендацій.</li>
+            <li>Залишити Bloomreach як контрольний варіант / базову модель.</li>
+            <li>Провести A/B-тест у продакшені проти Bloomreach.</li>
+          </ul>
+          <div class="outcome">
+            <b>Результат:</b> власний Рекомендаційний рушій v1, який вимірюється в продакшені і не залежить від логіки Bloomreach.
+          </div>
+        </div>
+      </article>
+
+      <article class="phase green">
+        <div class="top">
+          <div class="q">Q1 2027</div>
+          <div class="phase-title">Two-Tower Архітектура</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Побудувати векторні представлення клієнтів та векторні представлення товарів.</li>
+            <li>Запровадити відбір кандидатів через векторну схожість.</li>
+            <li>Додати персоналізоване ранжування поверх відбору.</li>
+            <li>Врахувати маржу, наявність та комерційні пріоритети.</li>
+            <li>Провести A/B test проти Collaborative Filtering.</li>
+          </ul>
+          <div class="outcome">
+            <b>Очікуваний ефект:</b> суттєвий приріст завдяки кращій релевантності та глибшому представленню клієнта й товару.
+          </div>
+        </div>
+      </article>
+
+      <article class="phase yellow">
+        <div class="top">
+          <div class="q">Q2 2027</div>
+          <div class="phase-title">Масштабування + інтеграція з Пошуком</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Створити єдиний API рекомендацій.</li>
+            <li>Масштабувати на PDP, Home, Category, Cart, CRM та комунікації.</li>
+            <li>Посилити врахування намір у межах сесії та контексту.</li>
+            <li>Повторно використовувати векторні представлення, відбір та ранжування для Пошуку.</li>
+            <li>Перейти від «моделі» до платформної можливості.</li>
+          </ul>
+          <div class="outcome">
+            <b>Результат:</b> one technology stack for Рекомендації + Пошук, instead of duplicated investments.
+          </div>
+        </div>
+      </article>
+
+      <article class="phase orange">
+        <div class="top">
+          <div class="q">Q3 2027</div>
+          <div class="phase-title">Послідовний трансформер</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Моделювати послідовність взаємодій клієнта.</li>
+            <li>Прогнозувати наступний товар / наступну категорію / наступну дію.</li>
+            <li>Враховувати динамічні зміни намір клієнта.</li>
+            <li>Провести A/B test проти Two-Tower.</li>
+            <li>Масштабувати лише якщо додаткова цінність виправдовує вартість інфраструктури.</li>
+          </ul>
+          <div class="outcome">
+            <b>Рішення-driven:</b> цей етап опціональний, а не обов’язковий технологічний апгрейд.
+          </div>
+        </div>
+      </article>
+
+      <article class="phase purple">
+        <div class="top">
+          <div class="q">Q4 2027</div>
+          <div class="phase-title">Платформа персоналізації</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Unify Рекомендації + Пошук + Комерційну персоналізацію.</li>
+            <li>Повторно використовувати знання про клієнта у всіх каналах.</li>
+            <li>Підтримати Наступна найкраща дія по всьому шляху клієнта.</li>
+            <li>Підключити ціни, бонуси, кредит, тригери та комунікації.</li>
+            <li>Manage the product against LTV клієнта.</li>
+          </ul>
+          <div class="outcome">
+            <b>Цільовий стан:</b> інфраструктура прийняття рішень для повторного використання для персоналізованого клієнтського досвіду.
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="gates">
+      <div class="gate">
+        <div class="gate-icon">1</div>
+        <div><strong>Гейт 1</strong><span>Чи створює власний CF додатковий прибуток проти Bloomreach?</span></div>
+      </div>
+      <div class="gate">
+        <div class="gate-icon">2</div>
+        <div><strong>Гейт 2</strong><span>Чи виправдовує приріст від Two-Tower додаткову машинно-навчальну та інфраструктурну складність?</span></div>
+      </div>
+      <div class="gate">
+        <div class="gate-icon">3</div>
+        <div><strong>Гейт 3</strong><span>Чи дає Sequential достатню додаткову цінність проти Two-Tower?</span></div>
+      </div>
+      <div class="gate scale">
+        <div class="gate-icon">✓</div>
+        <div><strong>Масштабування</strong><span>Only proven можливості become part of the shared Платформа персоналізації.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Інвестиційна логіка</div>
+        <h2>Бізнес та архітектура</h2>
+      </div>
+      <div class="section-note">Складність зростає лише тоді, коли разом із нею зростає бізнес-цінність.</div>
+    </div>
+
+    <div class="matrix">
+      <div class="label"></div>
+      <div class="header">Q4'26</div>
+      <div class="header">Q1'27</div>
+      <div class="header">Q2'27</div>
+      <div class="header">Q3'27</div>
+      <div class="header">Q4'27</div>
+
+      <div class="label">Основна capability</div>
+      <div>Collaborative Filtering</div>
+      <div>Двобаштова модель + ранжування</div>
+      <div>Єдиний API + повторне використання для Пошуку</div>
+      <div>Послідовне прогнозування наміру</div>
+      <div>Платформа Наступна найкраща дія</div>
+
+      <div class="label">Ключовий proof</div>
+      <div>Власна модель краща за baseline</div>
+      <div>Uplift релевантності</div>
+      <div>Масштабування + reuse</div>
+      <div>Додаткова цінність проти вартості</div>
+      <div>LTV / вплив на весь шлях клієнта</div>
+
+      <div class="label">Архітектура</div>
+      <div>Окремий recommendation service</div>
+      <div>Векторні представлення + відбір + ранжування</div>
+      <div>Спільний Рекомендації / Пошук layer</div>
+      <div>Моделювання послідовностей</div>
+      <div>Єдиний decisioning layer</div>
+
+      <div class="label last-row">Рішення</div>
+      <div class="last-row">Побудувати та перевірити</div>
+      <div class="last-row">Інвестувати, якщо приріст доведений</div>
+      <div class="last-row">Масштабування платформної можливості</div>
+      <div class="last-row">Опціональний advanced layer</div>
+      <div class="last-row">Об’єднати в платформу</div>
+    </div>
+  </section>
+
+  <section class="platform">
+    <h3>Target Personalization Архітектура</h3>
+    <p>
+      Рекомендаційні моделі мають стати однією можливістю для повторного використання у ширшому стеку прийняття рішень щодо клієнта, а не окремим ізольованим продуктом.
+    </p>
+    <div class="platform-flow">
+      <div class="node"><b>Дані клієнта та товару</b><span>Події, покупки, перегляди, кошики, атрибути, наявність, маржа, життєвий цикл.</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>Ознаки та векторні представлення</b><span>Профіль клієнта, представлення товару, намір у сесії, історична поведінка.</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>Models & Рішенняing</b><span>Відбір, ранжування, прогнозування наступного товару, оптимізація та бізнес-правила.</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>Клієнтський досвід</b><span>Рекомендації · Пошук · Персональні ціни · Бонуси · Кредит · Комунікації · Наступна найкраща дія.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Трек 02</div>
+        <h2>Роадмап персональних цін · до кінця 2026</h2>
+      </div>
+      <div class="section-note">
+        Ціль — еволюціонувати від поточного LinTS, який вибирає найкращий вплив,
+        до Personal Ціна Рушій рішень, що вирішує: кому давати офер, який саме офер давати
+        і чи створює він додатковий прибуток.
+      </div>
+    </div>
+
+    <div class="timeline" style="grid-template-columns:repeat(4,minmax(0,1fr));">
+      <article class="phase blue">
+        <div class="top">
+          <div class="q">Вересень 2026</div>
+          <div class="phase-title">Аудит та оптимізація LinTS</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Аудит ознак: клієнт, товар, категорія, бренд, чутливість до ціни та промо.</li>
+            <li>Переглянути функцію винагороди та бізнес-ціль моделі.</li>
+            <li>Додати ознаки прибутку / маржі.</li>
+            <li>Перевірити рівень дослідження, холодний старт, дрейф та деградацію.</li>
+            <li>Додати офлайн-відтворення / ретроспективне тестування перед продакшені змінами.</li>
+          </ul>
+          <div class="outcome">
+            <b>Результат:</b> стабільніший LinTS із кращою якістю ознак та контрольованим дослідження.
+          </div>
+        </div>
+      </article>
+
+      <article class="phase green">
+        <div class="top">
+          <div class="q">Вересень–Жовтень 2026</div>
+          <div class="phase-title">ML-список блокування вендорів і конкурентів</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Виявляти користувачів, які з високою ймовірністю є представниками вендорів або конкурентів.</li>
+            <li>Формувати ML-ризик-профіль на основі доступних поведінкових та інших дозволених ознак.</li>
+            <li>Не показувати персональні ціни користувачам із високим ризиком належності до вендора або конкурента.</li>
+            <li>Зменшити кількість випадків, коли персональні ціни потрапляють на скріншоти та передаються вендорам.</li>
+            <li>Зменшити кількість вимушених відключень персональних цін через реакцію вендорів на побачені пропозиції.</li>
+            <li>Передбачити контроль якості блокування, щоб мінімізувати помилкове блокування звичайних клієнтів.</li>
+          </ul>
+          <div class="outcome">
+            <b>Результат:</b> ML Block List v1 — захисний шар, який приховує персональні ціни від імовірних вендорів і конкурентів, зберігаючи програму активною для реальних клієнтів.
+          </div>
+        </div>
+      </article>
+
+      <article class="phase yellow">
+        <div class="top">
+          <div class="q">Жовтень–Листопад 2026</div>
+          <div class="phase-title">MAB з урахуванням прибутку та інкрементального ефекту</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Перевести ціль оптимізації із конверсії / обороту у додатковий прибуток.</li>
+            <li>Додати БЕЗ ОФЕРУ як окремий варіант.</li>
+            <li>Побудувати сигнал інкрементальності.</li>
+            <li>Оцінювати ефект впливу: офер проти відсутності оферу.</li>
+            <li>Навчити LinTS не лише вибирати найкращий знижку, а й вирішувати, чи потрібен офер взагалі.</li>
+          </ul>
+          <div class="outcome">
+            <b>Ключова зміна:</b> оптимізуємо не «ймовірність покупки», а додатковий прибуток від вплив.
+          </div>
+        </div>
+      </article>
+
+      <article class="phase purple">
+        <div class="top">
+          <div class="q">Листопад–Грудень 2026</div>
+          <div class="phase-title">Рушій рішень персональних цін v1</div>
+        </div>
+        <div class="phase-body">
+          <ul>
+            <li>Eligibility → ML-список блокування.</li>
+            <li>Інкрементальність → кому офер реально змінює поведінку.</li>
+            <li>LinTS → який вплив обрати.</li>
+            <li>Динамічна глибина знижки / впливу.</li>
+            <li>Оптимізація прибутку як фінальний шар прийняття рішень.</li>
+          </ul>
+          <div class="outcome">
+            <b>Цільовий стан 2026:</b> єдиний Рушій рішень для персональних цін, готовий до розширення на Бонус / Кредит у 2027.
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="gates">
+      <div class="gate">
+        <div class="gate-icon">1</div>
+        <div><strong>Гейт PP1</strong><span>Чи покращує оптимізований LinTS додатковий прибуток і стабільність моделі?</span></div>
+      </div>
+      <div class="gate">
+        <div class="gate-icon">2</div>
+        <div><strong>Гейт PP2</strong><span>Чи ML Block List надійно приховує персональні ціни від імовірних вендорів і конкурентів без суттєвого блокування реальних клієнтів?</span></div>
+      </div>
+      <div class="gate">
+        <div class="gate-icon">3</div>
+        <div><strong>Гейт PP3</strong><span>Чи логіка з урахуванням інкрементального ефекту перевершує поточна логіка вибору найкращого варіанта за додатковий прибуток?</span></div>
+      </div>
+      <div class="gate scale">
+        <div class="gate-icon">✓</div>
+        <div><strong>2027</strong><span>Розширити варіантs: No Офер / Ціна / Бонус / Кредит → Ядро прийняття рішень.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Еволюція MAB</div>
+        <h2>Куди рухати LinTS далі</h2>
+      </div>
+      <div class="section-note">
+        Головна еволюція — від вибору найкращого варіант до вибору найкращого incremental вплив.
+      </div>
+    </div>
+
+    <div class="matrix">
+      <div class="label"></div>
+      <div class="header">Сьогодні</div>
+      <div class="header">Крок 1</div>
+      <div class="header">Крок 2</div>
+      <div class="header">Крок 3</div>
+      <div class="header">2027</div>
+
+      <div class="label">Decision logic</div>
+      <div>Вибір найкращого варіанта</div>
+      <div>LinTS з урахуванням прибутку</div>
+      <div>LinTS з урахуванням інкрементального ефекту</div>
+      <div>Personal Ціна Рушій рішень</div>
+      <div>Ядро рішень для кількох типів впливу</div>
+
+      <div class="label">Що оптимізуємо</div>
+      <div>Conversion / turnover</div>
+      <div>Очікуваний прибуток</div>
+      <div>Інкрементальний ефект впливу</div>
+      <div>Incremental profit</div>
+      <div>LTV клієнта / Наступна найкраща дія</div>
+
+      <div class="label">Варіанти</div>
+      <div>Різні варіанти персональної ціни</div>
+      <div>варіанти персональної ціни + profit</div>
+      <div>БЕЗ ОФЕРУ + варіанти персональної ціни</div>
+      <div>Динамічна глибина ціни</div>
+      <div>No Офер / Ціна / Бонус / Кредит</div>
+
+      <div class="label last-row">Ключове питання</div>
+      <div class="last-row">Який офер кращий?</div>
+      <div class="last-row">Який офер прибутковіший?</div>
+      <div class="last-row">Чи потрібен офер взагалі?</div>
+      <div class="last-row">Який офер дає максимальний додатковий прибуток?</div>
+      <div class="last-row">Який комерційний вплив найкращий для клієнта?</div>
+    </div>
+  </section>
+
+  <section class="platform">
+    <h3>Цільова архітектура Персональні ціни 2026</h3>
+    <p>
+      Персональні ціни переходять від окремої MAB-моделі до керованого ланцюжка прийняття рішень.
+    </p>
+    <div class="platform-flow">
+      <div class="node"><b>Клієнт + Товар + Контекст</b><span>Поведінка, ціна, категорія, бренд, маржа, контекст конкурентів, правила вендорів.</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>Eligibility / ML-список блокування</b><span>Чи дозволено і чи доцільно активувати Personal Ціна для цього кейсу.</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>Інкрементальність + LinTS</b><span>Чи змінить офер поведінку та який вплив має найкращий очікуваний результат.</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><b>Оптимізація прибутку</b><span>Фінальний вибір вплив із фокусом на додатковий прибуток, а далі — Ядро прийняття рішень.</span></div>
+    </div>
+  </section>
+
+<div class="footer">Чернетка · Роадмап персоналізації · 2026–2027</div>
+</div>
+</body>
+</html>
